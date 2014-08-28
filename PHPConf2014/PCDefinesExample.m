@@ -14,19 +14,19 @@ NSString *const kPCApplicationID = <#@"ApplicationID"#>;
 
 #pragma mark - API - Data Spec Secrets
 
-NSString *const kPCRequestTemplate = <#@"secret"#>;
-NSString *const kPCDataVersion = <#@"secret"#>;
+NSString *const kPCDSRequestTemplate = <#@"secret"#>;
+NSString *const kPCDSDataVersion = <#@"secret"#>;
 
-NSString *const kPCSessionR0 = <#@"secret"#>;
-NSString *const kPCSessionR2 = <#@"secret"#>;
-NSString *const kPCVenueMap = <#@"secret"#>;
+NSString *const kPCDSSessionR0 = <#@"secret"#>;
+NSString *const kPCDSSessionR2 = <#@"secret"#>;
+NSString *const kPCDSVenueMap = <#@"secret"#>;
 
-NSString *const kPCSponsorGold = <#@"secret"#>;
-NSString *const kPCSponsorSilver = <#@"secret"#>;
-NSString *const kPCSponsorDiamond = <#@"secret"#>;
-NSString *const kPCSponsorSpecialThanks = <#@"secret"#>;
+NSString *const kPCDSSponsorGold = <#@"secret"#>;
+NSString *const kPCDSSponsorSilver = <#@"secret"#>;
+NSString *const kPCDSSponsorDiamond = <#@"secret"#>;
+NSString *const kPCDSSponsorSpecialThanks = <#@"secret"#>;
 
-NSString *const kPCConfBulletin = <#@"secret"#>;
-NSString *const kPCConfAbout = <#@"secret"#>;
-NSString *const kPCConfTeam = <#@"secret"#>;
-NSString *const kPCAppTeam = <#@"secret"#>;
+NSString *const kPCDSConfBulletin = <#@"secret"#>;
+NSString *const kPCDSConfAbout = <#@"secret"#>;
+NSString *const kPCDSConfTeam = <#@"secret"#>;
+NSString *const kPCDSAppTeam = <#@"secret"#>;
