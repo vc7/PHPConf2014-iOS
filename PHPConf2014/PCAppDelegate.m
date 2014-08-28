@@ -7,6 +7,8 @@
 //
 
 #import "PCAppDelegate.h"
+#import "PCDefines.h"
+#import "PCDataSpecDefines.h"
 
 @implementation PCAppDelegate
 
@@ -15,7 +17,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    [PCKit setApplicationId:@"123"];
+    [PCKit setApplicationId:kPCApplicationID
+                   dataSpec:[[PCDataSpecDefines alloc] init]];
     
     NSLog(@"%@", [PCKit getApplicationId]);
     
