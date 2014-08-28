@@ -10,3 +10,6 @@ DerivedData
 # CocoaPod
 Pods/*
 Podfile.lock
+
+# Defines
+PHPConf2014/PCDataSpecDefines.*
