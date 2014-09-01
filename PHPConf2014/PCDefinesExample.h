@@ -32,4 +32,9 @@ extern NSString *const kPCDSConfAbout;
 extern NSString *const kPCDSConfTeam;
 extern NSString *const kPCDSAppTeam;
 
+#pragma mark - API - Parse
+
+extern NSString *const kPCParseApplicationId;
+extern NSString *const kPCParseClientKey;
+
 #endif

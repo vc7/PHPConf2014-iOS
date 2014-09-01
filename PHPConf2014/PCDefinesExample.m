@@ -10,23 +10,28 @@
 
 #pragma mark - API
 
-NSString *const kPCApplicationID = <#@"ApplicationID"#>;
+NSString *const kPCApplicationID = <#DATA_APPLICATION_ID#>;
 
 #pragma mark - API - Data Spec Secrets
 
-NSString *const kPCDSRequestTemplate = <#@"secret"#>;
-NSString *const kPCDSDataVersion = <#@"secret"#>;
+NSString *const kPCDSRequestTemplate = <#SECRET#>;
+NSString *const kPCDSDataVersion = <#SECRET#>;
 
-NSString *const kPCDSSessionR0 = <#@"secret"#>;
-NSString *const kPCDSSessionR2 = <#@"secret"#>;
-NSString *const kPCDSVenueMap = <#@"secret"#>;
+NSString *const kPCDSSessionR0 = <#SECRET#>;
+NSString *const kPCDSSessionR2 = <#SECRET#>;
+NSString *const kPCDSVenueMap = <#SECRET#>;
 
-NSString *const kPCDSSponsorGold = <#@"secret"#>;
-NSString *const kPCDSSponsorSilver = <#@"secret"#>;
-NSString *const kPCDSSponsorDiamond = <#@"secret"#>;
-NSString *const kPCDSSponsorSpecialThanks = <#@"secret"#>;
+NSString *const kPCDSSponsorGold = <#SECRET#>;
+NSString *const kPCDSSponsorSilver = <#SECRET#>;
+NSString *const kPCDSSponsorDiamond = <#SECRET#>;
+NSString *const kPCDSSponsorSpecialThanks = <#SECRET#>;
 
-NSString *const kPCDSConfBulletin = <#@"secret"#>;
-NSString *const kPCDSConfAbout = <#@"secret"#>;
-NSString *const kPCDSConfTeam = <#@"secret"#>;
-NSString *const kPCDSAppTeam = <#@"secret"#>;
+NSString *const kPCDSConfBulletin = <#SECRET#>;
+NSString *const kPCDSConfAbout = <#SECRET#>;
+NSString *const kPCDSConfTeam = <#SECRET#>;
+NSString *const kPCDSAppTeam = <#SECRET#>;
+
+#pragma mark - API - Parse
+
+NSString *const kPCParseApplicationId = <#PARSE_APPLICATION_ID#>;
+NSString *const kPCParseClientKey = <#PARSE_CLIENT_KEY#>;
