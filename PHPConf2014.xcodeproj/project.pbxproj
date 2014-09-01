@@ -21,6 +21,7 @@
 		BFB46A2E19AB87A700922636 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB46A1619AB87A700922636 /* UIKit.framework */; };
 		BFB46A3619AB87A700922636 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFB46A3419AB87A700922636 /* InfoPlist.strings */; };
 		BFB46A3819AB87A700922636 /* PHPConf2014Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB46A3719AB87A700922636 /* PHPConf2014Tests.m */; };
+		BFBEC34019B4CD6800AA41EA /* UIColor+PHPConfAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBEC33F19B4CD6800AA41EA /* UIColor+PHPConfAdditions.m */; };
 		BFE918F019AF73E5008925C3 /* PCDataSpecDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE918EF19AF73E5008925C3 /* PCDataSpecDefines.m */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,8 @@
 		BFB46A3319AB87A700922636 /* PHPConf2014Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PHPConf2014Tests-Info.plist"; sourceTree = "<group>"; };
 		BFB46A3519AB87A700922636 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BFB46A3719AB87A700922636 /* PHPConf2014Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHPConf2014Tests.m; sourceTree = "<group>"; };
+		BFBEC33E19B4CD6800AA41EA /* UIColor+PHPConfAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+PHPConfAdditions.h"; sourceTree = "<group>"; };
+		BFBEC33F19B4CD6800AA41EA /* UIColor+PHPConfAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+PHPConfAdditions.m"; sourceTree = "<group>"; };
 		BFE918EE19AF73E5008925C3 /* PCDataSpecDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCDataSpecDefines.h; sourceTree = "<group>"; };
 		BFE918EF19AF73E5008925C3 /* PCDataSpecDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCDataSpecDefines.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +124,7 @@
 			children = (
 				BFB46A2119AB87A700922636 /* PCAppDelegate.h */,
 				BFB46A2219AB87A700922636 /* PCAppDelegate.m */,
+				BFBEC33D19B4CD4700AA41EA /* Categories */,
 				BFB46A2419AB87A700922636 /* Images.xcassets */,
 				BFB46A1919AB87A700922636 /* Supporting Files */,
 			);
@@ -158,6 +162,15 @@
 				BFB46A3419AB87A700922636 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BFBEC33D19B4CD4700AA41EA /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				BFBEC33E19B4CD6800AA41EA /* UIColor+PHPConfAdditions.h */,
+				BFBEC33F19B4CD6800AA41EA /* UIColor+PHPConfAdditions.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFB46A1F19AB87A700922636 /* main.m in Sources */,
+				BFBEC34019B4CD6800AA41EA /* UIColor+PHPConfAdditions.m in Sources */,
 				BFB46A2319AB87A700922636 /* PCAppDelegate.m in Sources */,
 				BFE918F019AF73E5008925C3 /* PCDataSpecDefines.m in Sources */,
 				BF4902BE19AF848500071AF0 /* PCDefines.m in Sources */,
