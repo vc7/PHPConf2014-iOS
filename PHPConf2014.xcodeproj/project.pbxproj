@@ -22,6 +22,10 @@
 		BFB46A3619AB87A700922636 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFB46A3419AB87A700922636 /* InfoPlist.strings */; };
 		BFB46A3819AB87A700922636 /* PHPConf2014Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB46A3719AB87A700922636 /* PHPConf2014Tests.m */; };
 		BFBEC34019B4CD6800AA41EA /* UIColor+PHPConfAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBEC33F19B4CD6800AA41EA /* UIColor+PHPConfAdditions.m */; };
+		BFBEC35119B8B76600AA41EA /* PCSessionListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBEC35019B8B76600AA41EA /* PCSessionListsViewController.m */; };
+		BFBEC35419B8B78A00AA41EA /* PCVenueMapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBEC35319B8B78A00AA41EA /* PCVenueMapsViewController.m */; };
+		BFBEC35719B8B79B00AA41EA /* PCNewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBEC35619B8B79B00AA41EA /* PCNewsListViewController.m */; };
+		BFBEC35A19B8B7C100AA41EA /* PCInfoListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBEC35919B8B7C100AA41EA /* PCInfoListsViewController.m */; };
 		BFE918F019AF73E5008925C3 /* PCDataSpecDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE918EF19AF73E5008925C3 /* PCDataSpecDefines.m */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +62,14 @@
 		BFB46A3719AB87A700922636 /* PHPConf2014Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHPConf2014Tests.m; sourceTree = "<group>"; };
 		BFBEC33E19B4CD6800AA41EA /* UIColor+PHPConfAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+PHPConfAdditions.h"; sourceTree = "<group>"; };
 		BFBEC33F19B4CD6800AA41EA /* UIColor+PHPConfAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+PHPConfAdditions.m"; sourceTree = "<group>"; };
+		BFBEC34F19B8B76600AA41EA /* PCSessionListsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCSessionListsViewController.h; sourceTree = "<group>"; };
+		BFBEC35019B8B76600AA41EA /* PCSessionListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCSessionListsViewController.m; sourceTree = "<group>"; };
+		BFBEC35219B8B78A00AA41EA /* PCVenueMapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCVenueMapsViewController.h; sourceTree = "<group>"; };
+		BFBEC35319B8B78A00AA41EA /* PCVenueMapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCVenueMapsViewController.m; sourceTree = "<group>"; };
+		BFBEC35519B8B79B00AA41EA /* PCNewsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCNewsListViewController.h; sourceTree = "<group>"; };
+		BFBEC35619B8B79B00AA41EA /* PCNewsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCNewsListViewController.m; sourceTree = "<group>"; };
+		BFBEC35819B8B7C100AA41EA /* PCInfoListsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCInfoListsViewController.h; sourceTree = "<group>"; };
+		BFBEC35919B8B7C100AA41EA /* PCInfoListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCInfoListsViewController.m; sourceTree = "<group>"; };
 		BFE918EE19AF73E5008925C3 /* PCDataSpecDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCDataSpecDefines.h; sourceTree = "<group>"; };
 		BFE918EF19AF73E5008925C3 /* PCDataSpecDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCDataSpecDefines.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				BFBEC34919B8B59600AA41EA /* Application */,
+				BFBEC34A19B8B5B100AA41EA /* View Controllers */,
 				BFBEC33D19B4CD4700AA41EA /* Categories */,
 				BFB46A2419AB87A700922636 /* Images.xcassets */,
 				BFB46A1919AB87A700922636 /* Supporting Files */,
@@ -179,6 +192,53 @@
 				BFB46A2219AB87A700922636 /* PCAppDelegate.m */,
 			);
 			name = Application;
+			sourceTree = "<group>";
+		};
+		BFBEC34A19B8B5B100AA41EA /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BFBEC34B19B8B6B900AA41EA /* Sessions */,
+				BFBEC34C19B8B6C000AA41EA /* Venues */,
+				BFBEC34D19B8B70100AA41EA /* News */,
+				BFBEC34E19B8B71800AA41EA /* Informations */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		BFBEC34B19B8B6B900AA41EA /* Sessions */ = {
+			isa = PBXGroup;
+			children = (
+				BFBEC34F19B8B76600AA41EA /* PCSessionListsViewController.h */,
+				BFBEC35019B8B76600AA41EA /* PCSessionListsViewController.m */,
+			);
+			name = Sessions;
+			sourceTree = "<group>";
+		};
+		BFBEC34C19B8B6C000AA41EA /* Venues */ = {
+			isa = PBXGroup;
+			children = (
+				BFBEC35219B8B78A00AA41EA /* PCVenueMapsViewController.h */,
+				BFBEC35319B8B78A00AA41EA /* PCVenueMapsViewController.m */,
+			);
+			name = Venues;
+			sourceTree = "<group>";
+		};
+		BFBEC34D19B8B70100AA41EA /* News */ = {
+			isa = PBXGroup;
+			children = (
+				BFBEC35519B8B79B00AA41EA /* PCNewsListViewController.h */,
+				BFBEC35619B8B79B00AA41EA /* PCNewsListViewController.m */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		BFBEC34E19B8B71800AA41EA /* Informations */ = {
+			isa = PBXGroup;
+			children = (
+				BFBEC35819B8B7C100AA41EA /* PCInfoListsViewController.h */,
+				BFBEC35919B8B7C100AA41EA /* PCInfoListsViewController.m */,
+			);
+			name = Informations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,8 +372,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFBEC35719B8B79B00AA41EA /* PCNewsListViewController.m in Sources */,
+				BFBEC35A19B8B7C100AA41EA /* PCInfoListsViewController.m in Sources */,
 				BFB46A1F19AB87A700922636 /* main.m in Sources */,
 				BFBEC34019B4CD6800AA41EA /* UIColor+PHPConfAdditions.m in Sources */,
+				BFBEC35119B8B76600AA41EA /* PCSessionListsViewController.m in Sources */,
+				BFBEC35419B8B78A00AA41EA /* PCVenueMapsViewController.m in Sources */,
 				BFB46A2319AB87A700922636 /* PCAppDelegate.m in Sources */,
 				BFE918F019AF73E5008925C3 /* PCDataSpecDefines.m in Sources */,
 				BF4902BE19AF848500071AF0 /* PCDefines.m in Sources */,
