@@ -19,13 +19,27 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    [PCKit setApplicationId:kPCApplicationID
-                   dataSpec:[[PCDataSpecDefines alloc] init]];
+    self.window.rootViewController = self.mainTabBarController;
     
     [self applyStyleSheet];
     
     [self.window makeKeyAndVisible];
+    
+	dispatch_async(dispatch_get_main_queue(), ^{
+        
+		// Set the OAuth client
+		[PCKit setApplicationId:kPCApplicationID dataSpec:[[PCDataSpecDefines alloc] init]];
+        
+	});
+    
     return YES;
+}
+
+#pragma mark - Shared Instance
+
++ (PCAppDelegate *)sharedAppDelegate
+{
+    return (PCAppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 #pragma mark - Style
@@ -43,6 +57,17 @@
     [UINavigationBar appearance].titleTextAttributes = @{ NSForegroundColorAttributeName:[UIColor whiteColor] };
     
     [UITabBar appearance].tintColor = [UIColor phpconfBlueColor];
+}
+
+#pragma mark - Accessors
+
+- (UITabBarController *)mainTabBarController
+{
+    if (!_mainTabBarController) {
+        _mainTabBarController = [[UITabBarController alloc] init];
+    }
+    
+    return _mainTabBarController;
 }
 
 @end
