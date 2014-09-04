@@ -27,7 +27,7 @@
     
 	dispatch_async(dispatch_get_main_queue(), ^{
         
-		// Set the OAuth client
+		// Set the application id
 		[PCKit setApplicationId:kPCApplicationID dataSpec:[[PCDataSpecDefines alloc] init]];
         
 	});

@@ -122,8 +122,7 @@
 		BFB46A1819AB87A700922636 /* PHPConf2014 */ = {
 			isa = PBXGroup;
 			children = (
-				BFB46A2119AB87A700922636 /* PCAppDelegate.h */,
-				BFB46A2219AB87A700922636 /* PCAppDelegate.m */,
+				BFBEC34919B8B59600AA41EA /* Application */,
 				BFBEC33D19B4CD4700AA41EA /* Categories */,
 				BFB46A2419AB87A700922636 /* Images.xcassets */,
 				BFB46A1919AB87A700922636 /* Supporting Files */,
@@ -171,6 +170,15 @@
 				BFBEC33F19B4CD6800AA41EA /* UIColor+PHPConfAdditions.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		BFBEC34919B8B59600AA41EA /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BFB46A2119AB87A700922636 /* PCAppDelegate.h */,
+				BFB46A2219AB87A700922636 /* PCAppDelegate.m */,
+			);
+			name = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
