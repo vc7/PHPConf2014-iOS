@@ -37,4 +37,8 @@ extern NSString *const kPCDSAppTeam;
 extern NSString *const kPCParseApplicationId;
 extern NSString *const kPCParseClientKey;
 
+#pragma mark - API - Google
+
+extern NSString *const kPCGoogleApiKey;
+
 #endif

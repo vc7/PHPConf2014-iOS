@@ -35,3 +35,7 @@ NSString *const kPCDSAppTeam = <#SECRET#>;
 
 NSString *const kPCParseApplicationId = <#PARSE_APPLICATION_ID#>;
 NSString *const kPCParseClientKey = <#PARSE_CLIENT_KEY#>;
+
+#pragma mark - API - Google
+
+NSString *const kPCGoogleApiKey = <#GOOGLE_API_KEY#>;
