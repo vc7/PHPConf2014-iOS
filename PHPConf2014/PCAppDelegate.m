@@ -10,6 +10,11 @@
 #import "PCDefines.h"
 #import "PCDataSpecDefines.h"
 
+#import "PCSessionListsViewController.h"
+#import "PCVenueMapsViewController.h"
+#import "PCNewsListViewController.h"
+#import "PCInfoListsViewController.h"
+
 #import "UIColor+PHPConfAdditions.h"
 
 @implementation PCAppDelegate
@@ -29,6 +34,9 @@
         
 		// Set the application id
 		[PCKit setApplicationId:kPCApplicationID dataSpec:[[PCDataSpecDefines alloc] init]];
+        
+        // Set Google Services API Key
+        [GMSServices provideAPIKey:kPCGoogleApiKey];
         
 	});
     
@@ -65,6 +73,13 @@
 {
     if (!_mainTabBarController) {
         _mainTabBarController = [[UITabBarController alloc] init];
+        
+        _mainTabBarController.viewControllers = @[
+                                                  [[UINavigationController alloc] initWithRootViewController:[[PCSessionListsViewController alloc] init]],
+                                                  [[UINavigationController alloc] initWithRootViewController:[[PCVenueMapsViewController alloc] init]],
+                                                  [[UINavigationController alloc] initWithRootViewController:[[PCNewsListViewController alloc] init]],
+                                                  [[UINavigationController alloc] initWithRootViewController:[[PCInfoListsViewController alloc] init]]
+                                                  ];
     }
     
     return _mainTabBarController;
