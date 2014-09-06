@@ -26,6 +26,9 @@
 		BFBEC35419B8B78A00AA41EA /* PCVenueMapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBEC35319B8B78A00AA41EA /* PCVenueMapsViewController.m */; };
 		BFBEC35719B8B79B00AA41EA /* PCNewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBEC35619B8B79B00AA41EA /* PCNewsListViewController.m */; };
 		BFBEC35A19B8B7C100AA41EA /* PCInfoListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBEC35919B8B7C100AA41EA /* PCInfoListsViewController.m */; };
+		BFBEC35E19B8C89200AA41EA /* PCTopTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBEC35D19B8C89200AA41EA /* PCTopTabBarController.m */; };
+		BFBEC36219BAE13300AA41EA /* PCTopTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBEC36119BAE13300AA41EA /* PCTopTabBar.m */; };
+		BFBEC36519BAE2F100AA41EA /* PCTopTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBEC36419BAE2F100AA41EA /* PCTopTabBarItem.m */; };
 		BFE918F019AF73E5008925C3 /* PCDataSpecDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE918EF19AF73E5008925C3 /* PCDataSpecDefines.m */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +73,12 @@
 		BFBEC35619B8B79B00AA41EA /* PCNewsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCNewsListViewController.m; sourceTree = "<group>"; };
 		BFBEC35819B8B7C100AA41EA /* PCInfoListsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCInfoListsViewController.h; sourceTree = "<group>"; };
 		BFBEC35919B8B7C100AA41EA /* PCInfoListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCInfoListsViewController.m; sourceTree = "<group>"; };
+		BFBEC35C19B8C89200AA41EA /* PCTopTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCTopTabBarController.h; path = PCTopTabBarController/PCTopTabBarController.h; sourceTree = "<group>"; };
+		BFBEC35D19B8C89200AA41EA /* PCTopTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCTopTabBarController.m; path = PCTopTabBarController/PCTopTabBarController.m; sourceTree = "<group>"; };
+		BFBEC36019BAE13300AA41EA /* PCTopTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCTopTabBar.h; path = PCTopTabBarController/PCTopTabBar.h; sourceTree = "<group>"; };
+		BFBEC36119BAE13300AA41EA /* PCTopTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCTopTabBar.m; path = PCTopTabBarController/PCTopTabBar.m; sourceTree = "<group>"; };
+		BFBEC36319BAE2F100AA41EA /* PCTopTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCTopTabBarItem.h; path = PCTopTabBarController/PCTopTabBarItem.h; sourceTree = "<group>"; };
+		BFBEC36419BAE2F100AA41EA /* PCTopTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCTopTabBarItem.m; path = PCTopTabBarController/PCTopTabBarItem.m; sourceTree = "<group>"; };
 		BFE918EE19AF73E5008925C3 /* PCDataSpecDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCDataSpecDefines.h; sourceTree = "<group>"; };
 		BFE918EF19AF73E5008925C3 /* PCDataSpecDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCDataSpecDefines.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +145,7 @@
 			children = (
 				BFBEC34919B8B59600AA41EA /* Application */,
 				BFBEC34A19B8B5B100AA41EA /* View Controllers */,
+				BFBEC35B19B8C80900AA41EA /* UI Packages */,
 				BFBEC33D19B4CD4700AA41EA /* Categories */,
 				BFB46A2419AB87A700922636 /* Images.xcassets */,
 				BFB46A1919AB87A700922636 /* Supporting Files */,
@@ -239,6 +249,27 @@
 				BFBEC35919B8B7C100AA41EA /* PCInfoListsViewController.m */,
 			);
 			name = Informations;
+			sourceTree = "<group>";
+		};
+		BFBEC35B19B8C80900AA41EA /* UI Packages */ = {
+			isa = PBXGroup;
+			children = (
+				BFBEC35F19B8C89C00AA41EA /* PCTopTabBarController */,
+			);
+			name = "UI Packages";
+			sourceTree = "<group>";
+		};
+		BFBEC35F19B8C89C00AA41EA /* PCTopTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				BFBEC35C19B8C89200AA41EA /* PCTopTabBarController.h */,
+				BFBEC35D19B8C89200AA41EA /* PCTopTabBarController.m */,
+				BFBEC36019BAE13300AA41EA /* PCTopTabBar.h */,
+				BFBEC36119BAE13300AA41EA /* PCTopTabBar.m */,
+				BFBEC36319BAE2F100AA41EA /* PCTopTabBarItem.h */,
+				BFBEC36419BAE2F100AA41EA /* PCTopTabBarItem.m */,
+			);
+			name = PCTopTabBarController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,6 +407,9 @@
 				BFBEC35A19B8B7C100AA41EA /* PCInfoListsViewController.m in Sources */,
 				BFB46A1F19AB87A700922636 /* main.m in Sources */,
 				BFBEC34019B4CD6800AA41EA /* UIColor+PHPConfAdditions.m in Sources */,
+				BFBEC35E19B8C89200AA41EA /* PCTopTabBarController.m in Sources */,
+				BFBEC36519BAE2F100AA41EA /* PCTopTabBarItem.m in Sources */,
+				BFBEC36219BAE13300AA41EA /* PCTopTabBar.m in Sources */,
 				BFBEC35119B8B76600AA41EA /* PCSessionListsViewController.m in Sources */,
 				BFBEC35419B8B78A00AA41EA /* PCVenueMapsViewController.m in Sources */,
 				BFB46A2319AB87A700922636 /* PCAppDelegate.m in Sources */,
