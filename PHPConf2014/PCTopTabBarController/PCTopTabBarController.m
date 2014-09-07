@@ -25,10 +25,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor grayColor];
     
     self.tabBar = [[PCTopTabBar alloc] initWithFrame:CGRectZero];
     self.tabBar.backgroundColor = [UIColor phpconfDarkBlueColor];
+    self.tabBar.delegate = self;
     
     [self layoutTabBar];
     
@@ -58,7 +58,6 @@
 {
     self.view.userInteractionEnabled = NO; // Turn off user interaction during rotation
 }
-
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
@@ -91,7 +90,8 @@
     // Assign new items array back
     self.tabBar.items = items;
     
-}
+    [self initializeSelectedState];
+}   
 
 #pragma mark - Private Methods
 
@@ -115,11 +115,25 @@
     }
 }
 
+- (void)initializeSelectedState
+{
+    [self setSelectedItemWithIndex:0];
+}
+
+- (void)setSelectedItemWithIndex:(NSInteger)index
+{
+    self.tabBar.selectedItem = self.tabBar.items[index];
+    self.selectedIndex = index;
+    self.selectedViewController = self.viewControllers[index];
+}
+
 #pragma mark - PCTopTabBarDelegate 
 
 - (void)tabBar:(PCTopTabBar *)tabBar didSelectItem:(PCTopTabBarItem *)item
 {
+    DLog(@"item clicked");
     
+    [self setSelectedItemWithIndex:item.tag];
 }
 
 @end

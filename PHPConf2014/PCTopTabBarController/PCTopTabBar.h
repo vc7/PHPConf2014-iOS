@@ -10,9 +10,13 @@
 
 @class PCTopTabBarItem;
 
+@protocol PCTopTabBarDelegate;
+
 @interface PCTopTabBar : UIView
 
+@property (nonatomic, weak) id<PCTopTabBarDelegate> delegate;
 @property (nonatomic, strong) NSArray *items;
+@property (nonatomic, strong) PCTopTabBarItem *selectedItem;
 
 @end
 

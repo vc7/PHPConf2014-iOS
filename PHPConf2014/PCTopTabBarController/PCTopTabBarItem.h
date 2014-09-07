@@ -10,6 +10,8 @@
 
 @interface PCTopTabBarItem : UIButton
 
+@property (nonatomic, strong) UIColor *indicatorColor;
+
 - (instancetype)initWithTitle:(NSString *)title tag:(NSInteger)tag;
 
 @end
