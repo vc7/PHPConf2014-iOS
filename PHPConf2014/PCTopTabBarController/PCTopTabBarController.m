@@ -30,16 +30,18 @@
     self.tabBar.backgroundColor = [UIColor phpconfDarkBlueColor];
     self.tabBar.delegate = self;
     
-    [self layoutTabBar];
+    self.containerView = [[UIView alloc] initWithFrame:self.view.frame];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    [self.view addSubview:self.containerView];
     [self.view addSubview:self.tabBar];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    if ([self.parentViewController isKindOfClass:[UINavigationController class]]) {
-        NSLog(@"parent is a navigation controller");
-    }
+    [self layoutTabBar];
+    [self layoutSelectedViewController];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,6 +54,7 @@
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     [self layoutTabBar]; // Will call layout subviews while adjust the frame of the tab bar
+    [self layoutSelectedViewController];
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
@@ -91,7 +94,29 @@
     self.tabBar.items = items;
     
     [self initializeSelectedState];
-}   
+}
+
+- (void)setSelectedViewController:(UIViewController *)selectedViewController
+{
+    if (_selectedViewController != selectedViewController) {
+        
+        [_selectedViewController willMoveToParentViewController:nil]; // view controller hierarchy - will exit old one
+        
+        [_selectedViewController.view removeFromSuperview];
+        
+        [_selectedViewController removeFromParentViewController]; // view controller hierarchy - remove old one
+        
+        _selectedViewController = selectedViewController;
+        
+        [self addChildViewController:_selectedViewController]; // view controller hierarchy -  add new one
+        
+        [self layoutSelectedViewController];
+        
+        [_selectedViewController didMoveToParentViewController:self]; // view controller hierarchy - will display new one
+        
+        [self.containerView addSubview:self.selectedViewController.view];
+    }
+}
 
 #pragma mark - Private Methods
 
@@ -101,10 +126,17 @@
     CGFloat statusBarHieght = 20;
     
     if (self.navigationController) {
-        CGRect navigationBarFrame = self.navigationController.navigationBar.frame;
+        
+        CGFloat navigationBarHeight;
+        
+        if (UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
+            navigationBarHeight = 44;
+        } else {
+            navigationBarHeight = 32;
+        }
         
         self.tabBar.frame = CGRectMake(0,
-                                       CGRectGetHeight(navigationBarFrame) + statusBarHieght,
+                                       CGRectGetMaxY(self.navigationController.navigationBar.frame),
                                        CGRectGetWidth(self.view.frame),
                                        tabBarHieght);
     } else {
@@ -113,6 +145,36 @@
                                        CGRectGetWidth(self.view.frame),
                                        tabBarHieght + statusBarHieght);
     }
+}
+
+- (void)layoutSelectedViewController
+{
+    if ([self.selectedViewController.view isKindOfClass:[UIScrollView class]]) {
+        
+        UIScrollView *scrollView = (UIScrollView *)self.selectedViewController.view;
+        
+        UIEdgeInsets scrollIndicatorInsets = scrollView.scrollIndicatorInsets;
+        UIEdgeInsets contentInset = scrollView.contentInset;
+        CGPoint contentOffset = scrollView.contentOffset;
+        
+        scrollIndicatorInsets.top = CGRectGetMaxY(self.tabBar.frame);
+        contentInset.top = CGRectGetMaxY(self.tabBar.frame);
+        contentOffset.y = - CGRectGetMaxY(self.tabBar.frame);
+        
+        if (self.navigationController) {
+            
+            if (self.navigationController.tabBarController) {
+                
+                scrollIndicatorInsets.bottom = CGRectGetHeight(((UITabBarController *)self.parentViewController.parentViewController).tabBar.frame);
+            }
+        }
+        
+        scrollView.scrollIndicatorInsets = scrollIndicatorInsets;
+        scrollView.contentInset = contentInset;
+        scrollView.contentOffset = contentOffset;
+    }
+    
+    self.selectedViewController.view.frame = self.containerView.frame;
 }
 
 - (void)initializeSelectedState
