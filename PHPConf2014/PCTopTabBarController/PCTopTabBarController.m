@@ -123,7 +123,7 @@
 - (void)layoutTabBar
 {
     CGFloat tabBarHieght = 44;
-    CGFloat statusBarHieght = 20;
+    CGFloat statusBarHeight = 20;
     
     if (self.navigationController) {
         
@@ -136,15 +136,17 @@
         }
         
         self.tabBar.frame = CGRectMake(0,
-                                       CGRectGetMaxY(self.navigationController.navigationBar.frame),
+                                       navigationBarHeight + statusBarHeight,
                                        CGRectGetWidth(self.view.frame),
                                        tabBarHieght);
     } else {
         self.tabBar.frame = CGRectMake(0,
                                        0,
                                        CGRectGetWidth(self.view.frame),
-                                       tabBarHieght + statusBarHieght);
+                                       tabBarHieght + statusBarHeight);
     }
+    
+    [self.tabBar setNeedsLayout];
 }
 
 - (void)layoutSelectedViewController
@@ -166,6 +168,7 @@
             if (self.navigationController.tabBarController) {
                 
                 scrollIndicatorInsets.bottom = CGRectGetHeight(((UITabBarController *)self.parentViewController.parentViewController).tabBar.frame);
+                contentInset.bottom = CGRectGetHeight(self.navigationController.tabBarController.tabBar.frame);
             }
         }
         
@@ -174,6 +177,7 @@
         scrollView.contentOffset = contentOffset;
     }
     
+    self.containerView.frame = self.view.frame;
     self.selectedViewController.view.frame = self.containerView.frame;
 }
 
