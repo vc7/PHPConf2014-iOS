@@ -12,7 +12,7 @@
 
 + (UIColor *)phpconfBlackColor
 {
-    return [self colorWithWhite:0.8 alpha:1];
+    return [self colorWithWhite:0.2 alpha:1];
 }
 + (UIColor *)phpconfGrayColor
 {
