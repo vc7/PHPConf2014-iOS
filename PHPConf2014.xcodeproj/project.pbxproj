@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0B06A30AA33E4B98B719B1A6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB7845B60EB408D8CC9B164 /* libPods.a */; };
 		BF4902BE19AF848500071AF0 /* PCDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4902BD19AF848500071AF0 /* PCDefines.m */; };
+		BF4D127819BCB10800B7CF92 /* PCSessionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4D127719BCB10800B7CF92 /* PCSessionTableViewController.m */; };
+		BF9083BE19C491E4008F286F /* PCSessionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9083BD19C491E4008F286F /* PCSessionDetailViewController.m */; };
 		BFB46A1319AB87A700922636 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB46A1219AB87A700922636 /* Foundation.framework */; };
 		BFB46A1519AB87A700922636 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB46A1419AB87A700922636 /* CoreGraphics.framework */; };
 		BFB46A1719AB87A700922636 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB46A1619AB87A700922636 /* UIKit.framework */; };
@@ -29,6 +31,9 @@
 		BFBEC35E19B8C89200AA41EA /* PCTopTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBEC35D19B8C89200AA41EA /* PCTopTabBarController.m */; };
 		BFBEC36219BAE13300AA41EA /* PCTopTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBEC36119BAE13300AA41EA /* PCTopTabBar.m */; };
 		BFBEC36519BAE2F100AA41EA /* PCTopTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBEC36419BAE2F100AA41EA /* PCTopTabBarItem.m */; };
+		BFE5E57E19BF40AF0014FB07 /* PCSessionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE5E57D19BF40AF0014FB07 /* PCSessionCell.m */; };
+		BFE5E58219C1E9770014FB07 /* avatar_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = BFE5E58019C1E9770014FB07 /* avatar_placeholder.png */; };
+		BFE5E58319C1E9770014FB07 /* avatar_placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFE5E58119C1E9770014FB07 /* avatar_placeholder@2x.png */; };
 		BFE918F019AF73E5008925C3 /* PCDataSpecDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE918EF19AF73E5008925C3 /* PCDataSpecDefines.m */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +52,10 @@
 		20498DCA9BA64EF59BB0A95F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		BF4902BC19AF848500071AF0 /* PCDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCDefines.h; sourceTree = "<group>"; };
 		BF4902BD19AF848500071AF0 /* PCDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCDefines.m; sourceTree = "<group>"; };
+		BF4D127619BCB10800B7CF92 /* PCSessionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCSessionTableViewController.h; sourceTree = "<group>"; };
+		BF4D127719BCB10800B7CF92 /* PCSessionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCSessionTableViewController.m; sourceTree = "<group>"; };
+		BF9083BC19C491E4008F286F /* PCSessionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCSessionDetailViewController.h; sourceTree = "<group>"; };
+		BF9083BD19C491E4008F286F /* PCSessionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCSessionDetailViewController.m; sourceTree = "<group>"; };
 		BFB46A0F19AB87A700922636 /* PHPConf2014.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PHPConf2014.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFB46A1219AB87A700922636 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BFB46A1419AB87A700922636 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -79,6 +88,10 @@
 		BFBEC36119BAE13300AA41EA /* PCTopTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCTopTabBar.m; path = PCTopTabBarController/PCTopTabBar.m; sourceTree = "<group>"; };
 		BFBEC36319BAE2F100AA41EA /* PCTopTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCTopTabBarItem.h; path = PCTopTabBarController/PCTopTabBarItem.h; sourceTree = "<group>"; };
 		BFBEC36419BAE2F100AA41EA /* PCTopTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCTopTabBarItem.m; path = PCTopTabBarController/PCTopTabBarItem.m; sourceTree = "<group>"; };
+		BFE5E57C19BF40AF0014FB07 /* PCSessionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCSessionCell.h; sourceTree = "<group>"; };
+		BFE5E57D19BF40AF0014FB07 /* PCSessionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCSessionCell.m; sourceTree = "<group>"; };
+		BFE5E58019C1E9770014FB07 /* avatar_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar_placeholder.png; path = Resources/avatar_placeholder.png; sourceTree = "<group>"; };
+		BFE5E58119C1E9770014FB07 /* avatar_placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "avatar_placeholder@2x.png"; path = "Resources/avatar_placeholder@2x.png"; sourceTree = "<group>"; };
 		BFE918EE19AF73E5008925C3 /* PCDataSpecDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCDataSpecDefines.h; sourceTree = "<group>"; };
 		BFE918EF19AF73E5008925C3 /* PCDataSpecDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCDataSpecDefines.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,9 +158,11 @@
 			children = (
 				BFBEC34919B8B59600AA41EA /* Application */,
 				BFBEC34A19B8B5B100AA41EA /* View Controllers */,
+				BFE5E57A19BF40660014FB07 /* Views */,
 				BFBEC35B19B8C80900AA41EA /* UI Packages */,
 				BFBEC33D19B4CD4700AA41EA /* Categories */,
 				BFB46A2419AB87A700922636 /* Images.xcassets */,
+				BFE5E57F19C1E7A20014FB07 /* Resources */,
 				BFB46A1919AB87A700922636 /* Supporting Files */,
 			);
 			path = PHPConf2014;
@@ -220,6 +235,10 @@
 			children = (
 				BFBEC34F19B8B76600AA41EA /* PCSessionListsViewController.h */,
 				BFBEC35019B8B76600AA41EA /* PCSessionListsViewController.m */,
+				BF4D127619BCB10800B7CF92 /* PCSessionTableViewController.h */,
+				BF4D127719BCB10800B7CF92 /* PCSessionTableViewController.m */,
+				BF9083BC19C491E4008F286F /* PCSessionDetailViewController.h */,
+				BF9083BD19C491E4008F286F /* PCSessionDetailViewController.m */,
 			);
 			name = Sessions;
 			sourceTree = "<group>";
@@ -270,6 +289,32 @@
 				BFBEC36419BAE2F100AA41EA /* PCTopTabBarItem.m */,
 			);
 			name = PCTopTabBarController;
+			sourceTree = "<group>";
+		};
+		BFE5E57A19BF40660014FB07 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BFE5E57B19BF407A0014FB07 /* Sessions */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		BFE5E57B19BF407A0014FB07 /* Sessions */ = {
+			isa = PBXGroup;
+			children = (
+				BFE5E57C19BF40AF0014FB07 /* PCSessionCell.h */,
+				BFE5E57D19BF40AF0014FB07 /* PCSessionCell.m */,
+			);
+			name = Sessions;
+			sourceTree = "<group>";
+		};
+		BFE5E57F19C1E7A20014FB07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BFE5E58019C1E9770014FB07 /* avatar_placeholder.png */,
+				BFE5E58119C1E9770014FB07 /* avatar_placeholder@2x.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,7 +396,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFB46A1D19AB87A700922636 /* InfoPlist.strings in Resources */,
+				BFE5E58219C1E9770014FB07 /* avatar_placeholder.png in Resources */,
 				BFB46A2519AB87A700922636 /* Images.xcassets in Resources */,
+				BFE5E58319C1E9770014FB07 /* avatar_placeholder@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,7 +457,10 @@
 				BFBEC35E19B8C89200AA41EA /* PCTopTabBarController.m in Sources */,
 				BFBEC36519BAE2F100AA41EA /* PCTopTabBarItem.m in Sources */,
 				BFBEC36219BAE13300AA41EA /* PCTopTabBar.m in Sources */,
+				BF9083BE19C491E4008F286F /* PCSessionDetailViewController.m in Sources */,
+				BF4D127819BCB10800B7CF92 /* PCSessionTableViewController.m in Sources */,
 				BFBEC35119B8B76600AA41EA /* PCSessionListsViewController.m in Sources */,
+				BFE5E57E19BF40AF0014FB07 /* PCSessionCell.m in Sources */,
 				BFBEC35419B8B78A00AA41EA /* PCVenueMapsViewController.m in Sources */,
 				BFB46A2319AB87A700922636 /* PCAppDelegate.m in Sources */,
 				BFE918F019AF73E5008925C3 /* PCDataSpecDefines.m in Sources */,
