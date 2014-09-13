@@ -127,12 +127,18 @@
     
     if (self.navigationController) {
         
-        CGFloat navigationBarHeight;
+        CGFloat navigationBarHeight = CGRectGetHeight(self.navigationController.navigationBar.frame);
         
-        if (UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)) {
-            navigationBarHeight = 44;
-        } else {
-            navigationBarHeight = 32;
+        DLog(@"Navigation Bar Height - %.2f points",CGRectGetHeight(self.navigationController.navigationBar.frame));
+        
+        if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation) &&
+            UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone &&
+            NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
+            
+            // status bar will hide while iPhone is in landscape mode when iOS version is iOS 8
+            DLog(@"iOS version is larger than iOS 7");
+            statusBarHeight = 0;
+            
         }
         
         self.tabBar.frame = CGRectMake(0,
