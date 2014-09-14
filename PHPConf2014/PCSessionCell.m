@@ -8,6 +8,7 @@
 
 #import "PCSessionCell.h"
 #import "UIColor+PHPConfAdditions.h"
+#import "UIFont+PHPConfAdditions.h"
 
 @interface PCSessionCell ()
 
@@ -77,10 +78,10 @@
 
 - (void)applyStyleSheet
 {
-    self.textLabel.font = [UIFont boldSystemFontOfSize:14.f];
+    self.textLabel.font = [UIFont phpconfBoldFontSize:14.f];
     self.textLabel.textColor = [UIColor phpconfBlueColor];
     
-    self.timeLabel.font = [UIFont systemFontOfSize:12.f];
+    self.timeLabel.font = [UIFont phpconfFontSize:12.f];
     self.timeLabel.textColor = [UIColor phpconfBlackColor];
     
     self.backgroundColor = [UIColor clearColor];

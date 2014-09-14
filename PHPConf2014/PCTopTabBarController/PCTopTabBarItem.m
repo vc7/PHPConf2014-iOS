@@ -8,6 +8,7 @@
 
 #import "PCTopTabBarItem.h"
 #import "UIColor+PHPConfAdditions.h"
+#import "UIFont+PHPConfAdditions.h"
 
 @interface PCTopTabBarItem ()
 
@@ -23,7 +24,7 @@
     if (self) {
         
         self.tag = tag;
-        self.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+        self.titleLabel.font = [UIFont phpconfBoldFontSize:15.f];
         
         [self setTitle:title forState:UIControlStateNormal];
         
