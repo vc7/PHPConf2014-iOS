@@ -7,6 +7,11 @@ task :setup do
 	`cp PHPConf2014/PCDefinesExample.h PHPConf2014/PCDefines.h`
 	`cp PHPConf2014/PCDefinesExample.m PHPConf2014/PCDefines.m`
 
+	puts 'Creating font folder and dummy resouces...'.cyan
+	`mkdir -p PHPConf2014/Resources/Fonts`
+	`touch PHPConf2014/Resources/Fonts/NotoSansCJKtc-DemiLight.otf`
+	`touch PHPConf2014/Resources/Fonts/NotoSansCJKtc-Bold.otf`
+
 	# Done
   puts 'Done! You\'re ready to go!'.green
 end
