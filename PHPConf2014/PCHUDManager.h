@@ -29,6 +29,12 @@
 
 /*! The most easy way to pop the managed HUD view out */
 - (void)showHUD;
+/*! Show HUD and hide automatically after 2 seconds in default */
+- (void)showHUDWithAutoHide;
+/*! Show HUD and hide automatically after the given seconds
+ @param delayInSeconds the delay time length in second(s).
+ */
+- (void)showHUDWithAutoHideAfterDelayInSeconds:(CGFloat)delayInSeconds;
 /*! The most easy way to dismiss the managed HUD view */
 - (void)hideHUD;
 

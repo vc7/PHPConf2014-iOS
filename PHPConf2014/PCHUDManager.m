@@ -70,6 +70,21 @@
     [self.progressHUD show:YES];
 }
 
+- (void)showHUDWithAutoHide
+{
+    [self showHUDWithAutoHideAfterDelayInSeconds:2.0];
+}
+
+- (void)showHUDWithAutoHideAfterDelayInSeconds:(CGFloat)delayInSeconds
+{
+    [self showHUD];
+    
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self hideHUD];
+    });
+}
+
 - (void)hideHUD
 {
     [self.progressHUD hide:YES];
