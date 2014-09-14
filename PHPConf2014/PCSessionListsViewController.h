@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PCTopTabBarController.h"
 
-@interface PCSessionListsViewController : UIViewController
+@interface PCSessionListsViewController : PCTopTabBarController
 
 @end

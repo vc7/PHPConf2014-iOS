@@ -8,9 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol PCSessionTableViewControllerDelegate;
+
 @interface PCSessionTableViewController : UITableViewController
+
+@property (nonatomic, weak) id <PCSessionTableViewControllerDelegate> delegate;
 
 @property (nonatomic, strong) NSString *cellIdentifier;
 @property (nonatomic, strong) NSArray *dataArray;
+
+@end
+
+@protocol PCSessionTableViewControllerDelegate <NSObject>
+
+@optional
+
+- (void)sessionTableViewController:(PCSessionTableViewController *)tableViewController didSelectRowWithData:(id)data;
 
 @end

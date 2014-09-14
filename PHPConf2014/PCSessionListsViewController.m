@@ -7,8 +7,12 @@
 //
 
 #import "PCSessionListsViewController.h"
+#import "PCSessionTableViewController.h"
+#import "PCSessionDetailViewController.h"
 
-@interface PCSessionListsViewController ()
+#import <MBProgressHUD/MBProgressHUD.h>
+
+@interface PCSessionListsViewController () <PCSessionTableViewControllerDelegate>
 
 @end
 
@@ -28,11 +32,34 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    PCSessionTableViewController *viewControllerA = [[PCSessionTableViewController alloc] init];
+    viewControllerA.delegate = self;
+    viewControllerA.title = @"國際會議廳";
+    
+    PCSessionTableViewController *viewControllerB = [[PCSessionTableViewController alloc] init];
+    viewControllerB.delegate = self;
+    viewControllerB.title = @"第二會議室";
+    
+    self.viewControllers = @[viewControllerA, viewControllerB];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - PCSessionTableViewControllerDelegate
+
+- (void)sessionTableViewController:(PCSessionTableViewController *)tableViewController didSelectRowWithData:(id)data
+{
+    // Use this view controller to push
+    if (data) {
+        DLog(@"Cell is selected");
+    } else {
+        DLog(@"Cell is selected, data is not available.");
+    }
+    
 }
 
 @end

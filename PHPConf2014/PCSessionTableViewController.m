@@ -9,7 +9,6 @@
 #import "PCSessionTableViewController.h"
 
 #import "PCSessionCell.h"
-#import "PCSessionViewController.h"
 
 #import "UIColor+PHPConfAdditions.h"
 
@@ -100,6 +99,10 @@
     // Push view controller only if the cell is an instance of PCSessionRegularCell (議程)
     if ([cell isKindOfClass:[PCSessionRegularCell class]]) {
         DLog(@"Session Cell is an instance of PCSessionRegularCell");
+        
+        if ([self.delegate respondsToSelector:@selector(sessionTableViewController:didSelectRowWithData:)]) {
+            [self.delegate sessionTableViewController:self didSelectRowWithData:self.dataArray[indexPath.row]];
+        }
     } else {
         DLog(@"Session Cell is an instance of PCSessionOtherCell");
     }
