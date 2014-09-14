@@ -9,6 +9,7 @@
 #import "PCSessionDetailCell.h"
 
 #import "UIColor+PHPConfAdditions.h"
+#import "UIFont+PHPConfAdditions.h"
 
 @implementation PCSessionDetailCell
 
@@ -156,11 +157,11 @@
     
     self.nameLabel.backgroundColor = [UIColor clearColor];
     self.nameLabel.textColor = [UIColor whiteColor];
-    self.nameLabel.font = [UIFont boldSystemFontOfSize:16.f];
+    self.nameLabel.font = [UIFont phpconfBoldFontSize:16.f];
     
     self.positionLabel.backgroundColor = [UIColor clearColor];
     self.positionLabel.textColor = [UIColor whiteColor];
-    self.positionLabel.font = [UIFont systemFontOfSize:14.f];
+    self.positionLabel.font = [UIFont phpconfFontSize:14.f];
 
 }
 
@@ -183,10 +184,84 @@
 {
     [super applyStyleSheet];
     
-    self.textLabel.font = [UIFont systemFontOfSize:14.f];
+    self.textLabel.font = [UIFont phpconfFontSize:14.f];
     self.textLabel.textColor = [UIColor phpconfBlackColor];
     self.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.textLabel.numberOfLines = 0;
+}
+
+@end
+
+@interface PCSessionDetailSectionTitleCell ()
+
+@property (nonatomic, strong) CALayer *underline;
+
+@end
+
+@implementation PCSessionDetailSectionTitleCell
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        [self applyStyleSheet];
+    }
+    return self;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    CGFloat underlineWidth = 1;
+    self.underline.frame = (CGRect){{CGRectGetMinX(self.textLabel.frame), CGRectGetHeight(self.frame) - underlineWidth}, {CGRectGetWidth(self.textLabel.frame), underlineWidth}};
+}
+
+#pragma mark - Private Methods
+
+- (void)applyStyleSheet
+{
+    [super applyStyleSheet];
+    
+    self.textLabel.font = [UIFont phpconfBoldFontSize:12.f];
+    self.textLabel.textColor = [UIColor phpconfGrayColor];
+}
+
+- (CALayer *)underline
+{
+    if (!_underline) {
+        _underline = [[CALayer alloc] init];
+        _underline.backgroundColor = [UIColor phpconfGreenColor].CGColor;
+        
+        [self.layer addSublayer:_underline];
+    }
+    
+    return _underline;
+}
+
+@end
+
+@implementation PCSessionDetailSectionContentCell
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        [self applyStyleSheet];
+    }
+    return self;
+}
+
+#pragma mark - Private Methods
+
+- (void)applyStyleSheet
+{
+    [super applyStyleSheet];
+    
+    self.textLabel.font = [UIFont phpconfFontSize:12.f];
+    self.textLabel.textColor = [UIColor phpconfBlackColor];
+    self.textLabel.numberOfLines = 0;
+    self.textLabel.lineBreakMode = NSLineBreakByCharWrapping;
 }
 
 @end

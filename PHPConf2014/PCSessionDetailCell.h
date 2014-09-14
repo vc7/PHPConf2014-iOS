@@ -36,3 +36,19 @@
 @interface PCSessionDetailIntroCell : PCSessionDetailCell
 
 @end
+
+/*!
+ @class PCSessionDetailSectionTitleCell
+ The cell class that display the title of the sections.
+ */
+@interface PCSessionDetailSectionTitleCell : PCSessionDetailCell
+
+@end
+
+/*!
+ @class PCSessionDetailSectionContentCell
+ The cell class that display the title of the sections.
+ */
+@interface PCSessionDetailSectionContentCell : PCSessionDetailCell
+
+@end
