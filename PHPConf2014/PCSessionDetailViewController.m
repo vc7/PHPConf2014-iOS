@@ -8,7 +8,12 @@
 
 #import "PCSessionDetailViewController.h"
 
+#import "PCSessionDetailCell.h"
+#import "PCSessionDetailCellManager.h"
+
 @interface PCSessionDetailViewController ()
+
+@property (nonatomic, strong) PCSessionDetailCellManager *cellManager;
 
 @end
 
@@ -22,16 +27,53 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - Table view data source
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 0;
+    // 0 - 講者及標題
+    // 1 - 關於講題
+    // 2 - 關於講者
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
+    switch (section) {
+        // 講者及標題, Speaker and title
+        case 0:
+            return 2;
+        // 關於講題, Session detail
+        case 1:
+            return 1;
+        // 關於講者, About speaker
+        case 2:
+            return 1;
+        default:
+            break;
+    }
     return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [self.cellManager fetchCellWithIndexPath:indexPath];
+}
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44;
+}
+
+#pragma mark - Accessors
+
+- (PCSessionDetailCellManager *)cellManager
+{
+    if (!_cellManager) {
+        _cellManager = [[PCSessionDetailCellManager alloc] initWithTableView:self.tableView];
+    }
+    
+    return _cellManager;
 }
 
 @end
