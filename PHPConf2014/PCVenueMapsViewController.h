@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PCTopTabBarController.h"
 
-@interface PCVenueMapsViewController : UIViewController
+@interface PCVenueMapsViewController : PCTopTabBarController
 
 @end

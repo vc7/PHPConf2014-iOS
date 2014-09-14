@@ -28,6 +28,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIViewController *viewControllerA = [[UIViewController alloc] init];
+    viewControllerA.title = @"PHPConf";
+    
+    UIViewController *viewControllerB = [[UIViewController alloc] init];
+    viewControllerB.title = @"贊助商";
+
+    UIViewController *viewControllerC = [[UIViewController alloc] init];
+    viewControllerC.title = @"App";
+    
+    self.viewControllers = @[viewControllerA, viewControllerB, viewControllerC];
 }
 
 - (void)didReceiveMemoryWarning

@@ -28,6 +28,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIViewController *viewControllerA = [[UIViewController alloc] init];
+    viewControllerA.title = @"會場地圖";
+    
+    UIViewController *viewControllerB = [[UIViewController alloc] init];
+    viewControllerB.title = @"中研院地圖";
+    
+    self.viewControllers = @[viewControllerA, viewControllerB];
 }
 
 - (void)didReceiveMemoryWarning
