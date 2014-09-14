@@ -13,6 +13,7 @@
 		BF9083BE19C491E4008F286F /* PCSessionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9083BD19C491E4008F286F /* PCSessionDetailViewController.m */; };
 		BF9083C219C49C3B008F286F /* PCSessionDetailCellCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9083C119C49C3B008F286F /* PCSessionDetailCellCoordinator.m */; };
 		BF9083C519C49DCD008F286F /* PCSessionDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9083C419C49DCD008F286F /* PCSessionDetailCell.m */; };
+		BF9083C819C535F6008F286F /* PCHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9083C719C535F6008F286F /* PCHUDManager.m */; };
 		BFB46A1319AB87A700922636 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB46A1219AB87A700922636 /* Foundation.framework */; };
 		BFB46A1519AB87A700922636 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB46A1419AB87A700922636 /* CoreGraphics.framework */; };
 		BFB46A1719AB87A700922636 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB46A1619AB87A700922636 /* UIKit.framework */; };
@@ -62,6 +63,8 @@
 		BF9083C119C49C3B008F286F /* PCSessionDetailCellCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCSessionDetailCellCoordinator.m; sourceTree = "<group>"; };
 		BF9083C319C49DCD008F286F /* PCSessionDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCSessionDetailCell.h; sourceTree = "<group>"; };
 		BF9083C419C49DCD008F286F /* PCSessionDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCSessionDetailCell.m; sourceTree = "<group>"; };
+		BF9083C619C535F6008F286F /* PCHUDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCHUDManager.h; sourceTree = "<group>"; };
+		BF9083C719C535F6008F286F /* PCHUDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCHUDManager.m; sourceTree = "<group>"; };
 		BFB46A0F19AB87A700922636 /* PHPConf2014.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PHPConf2014.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFB46A1219AB87A700922636 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BFB46A1419AB87A700922636 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -132,6 +135,8 @@
 			children = (
 				BF9083C019C49C3B008F286F /* PCSessionDetailCellCoordinator.h */,
 				BF9083C119C49C3B008F286F /* PCSessionDetailCellCoordinator.m */,
+				BF9083C619C535F6008F286F /* PCHUDManager.h */,
+				BF9083C719C535F6008F286F /* PCHUDManager.m */,
 			);
 			name = Coordinators;
 			sourceTree = "<group>";
@@ -480,6 +485,7 @@
 				BF9083BE19C491E4008F286F /* PCSessionDetailViewController.m in Sources */,
 				BF4D127819BCB10800B7CF92 /* PCSessionTableViewController.m in Sources */,
 				BFBEC35119B8B76600AA41EA /* PCSessionListsViewController.m in Sources */,
+				BF9083C819C535F6008F286F /* PCHUDManager.m in Sources */,
 				BFE5E57E19BF40AF0014FB07 /* PCSessionCell.m in Sources */,
 				BFBEC35419B8B78A00AA41EA /* PCVenueMapsViewController.m in Sources */,
 				BFB46A2319AB87A700922636 /* PCAppDelegate.m in Sources */,
