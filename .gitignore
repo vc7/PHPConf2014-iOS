@@ -13,3 +13,6 @@ Podfile.lock
 
 # Defines
 PHPConf2014/PCDefines.*
+
+# Fonts
+PHPConf2014/Resources/Fonts/*
