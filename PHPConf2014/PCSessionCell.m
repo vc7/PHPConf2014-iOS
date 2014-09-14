@@ -83,7 +83,7 @@
     self.timeLabel.font = [UIFont systemFontOfSize:12.f];
     self.timeLabel.textColor = [UIColor phpconfBlackColor];
     
-    self.backgroundColor = [UIColor phpconfLightBlueColor];
+    self.backgroundColor = [UIColor clearColor];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
