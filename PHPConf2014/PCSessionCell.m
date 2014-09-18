@@ -42,6 +42,8 @@
     CGRect timeLabelRect = self.timeLabel.frame;
     
     textLabelRect.origin = (CGPoint){112, 42};
+    textLabelRect.size.width = CGRectGetWidth(self.frame) - 111 - 40;
+    
     timeLabelRect.origin = (CGPoint){112, 26};
     
     self.textLabel.frame = textLabelRect;
@@ -80,6 +82,8 @@
 {
     self.textLabel.font = [UIFont phpconfBoldFontSize:14.f];
     self.textLabel.textColor = [UIColor phpconfBlueColor];
+    self.textLabel.numberOfLines = 0;
+    self.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     
     self.timeLabel.font = [UIFont phpconfFontSize:12.f];
     self.timeLabel.textColor = [UIColor phpconfBlackColor];

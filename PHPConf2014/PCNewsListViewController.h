@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PCNewsListViewController : UIViewController
+@interface PCNewsListViewController : UITableViewController
 
 @end

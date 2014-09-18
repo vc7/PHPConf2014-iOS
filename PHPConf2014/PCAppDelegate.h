@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class PCHUDManager;
+
 @interface PCAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

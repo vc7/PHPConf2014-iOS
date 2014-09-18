@@ -30,58 +30,20 @@
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor phpconfLightBlueColor];
-    self.cellIdentifier = @"session%@CellIdentifier";
+    self.view.backgroundColor = [UIColor phpconfExtraLightBlueColor];
+    self.tableView.dataSource = self.dataSource;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
-    
-    [self.tableView registerClass:[PCSessionRegularCell class] forCellReuseIdentifier:[NSString stringWithFormat:self.cellIdentifier, @"Regular"]];
-    [self.tableView registerClass:[PCSessionOtherCell class] forCellReuseIdentifier:[NSString stringWithFormat:self.cellIdentifier, @"Other"]];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-}
-
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 20;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    PCSessionCell *cell;
-    
-    if (indexPath.row == 0 || indexPath.row == 8 || indexPath.row == 19) {
-        cell = (PCSessionOtherCell *)[tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:self.cellIdentifier, @"Other"] forIndexPath:indexPath];
-    } else {
-        cell = (PCSessionRegularCell *)[tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:self.cellIdentifier, @"Regular"] forIndexPath:indexPath];
-    }
-    
-    cell.textLabel.text = @"PHPConf 議程名稱";
-    cell.timeLabel.text = @"10:00 PM";
-    
-    if (indexPath.row == 0) {
-        cell.cellState = PCSessionCellStateFirst;
-    } else if (indexPath.row == 8) {
-        cell.cellState = PCSessionCellStateDefault;
-    } else if (indexPath.row == 19) {
-        cell.cellState = PCSessionCellStateLast;
-    } else {
-        cell.cellState = PCSessionCellStateDefault;
-    }
-    
-    cell.timeLabel.text = @"00:00 ~ 00:00";
-    cell.textLabel.text = @"Session Name";
-    
-    return cell;
 }
 
 #pragma mark - UITableViewDelegate
@@ -106,6 +68,18 @@
     } else {
         DLog(@"Session Cell is an instance of PCSessionOtherCell");
     }
+}
+
+#pragma mark - Accessors
+
+- (void)setDataSource:(id<PCSessionTableViewControllerDataSource,UITableViewDataSource>)dataSource
+{
+    // retain the data source
+    _dataSource = dataSource;
+    
+    self.title = [_dataSource venueName];
+    
+    [self.tableView reloadData];
 }
 
 @end

@@ -33,7 +33,7 @@
     viewControllerA.title = @"會場地圖";
     
     UIViewController *viewControllerB = [[UIViewController alloc] init];
-    viewControllerB.title = @"中研院地圖";
+    viewControllerB.title = @"輔大地圖";
     
     self.viewControllers = @[viewControllerA, viewControllerB];
 }

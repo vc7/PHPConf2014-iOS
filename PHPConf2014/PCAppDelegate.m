@@ -15,30 +15,36 @@
 #import "PCNewsListViewController.h"
 #import "PCInfoListsViewController.h"
 
+#import "PCVenueMapMainViewController.h"
+
 #import "UIColor+PHPConfAdditions.h"
+#import "UIFont+PHPConfAdditions.h"
+
+@interface PCAppDelegate ()
+
+@end
 
 @implementation PCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+{   
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
     self.window.rootViewController = self.mainTabBarController;
     
     [self applyStyleSheet];
+    [self applyServices];
+
+    [[PCKSynchronizer sharedSynchronizer] checkRemoteDataVersionWithSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        DLog(@"%@",responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     [self.window makeKeyAndVisible];
-    
-	dispatch_async(dispatch_get_main_queue(), ^{
-        
-		// Set the application id
-		[PCKit setApplicationId:kPCApplicationID dataSpec:[[PCDataSpecDefines alloc] init]];
-        
-        // Set Google Services API Key
-        [GMSServices provideAPIKey:kPCGoogleApiKey];
-        
-	});
     
     return YES;
 }
@@ -62,9 +68,23 @@
     [UINavigationBar appearance].barTintColor = [UIColor phpconfBlueColor];
     [UINavigationBar appearance].barStyle = UIBarStyleBlackTranslucent;
     [UINavigationBar appearance].tintColor = [UIColor whiteColor];
-    [UINavigationBar appearance].titleTextAttributes = @{ NSForegroundColorAttributeName:[UIColor whiteColor] };
+    [UINavigationBar appearance].titleTextAttributes = @{ NSForegroundColorAttributeName:[UIColor whiteColor],
+                                                          NSFontAttributeName:[UIFont phpconfFontSize:16.f]};
     
     [UITabBar appearance].tintColor = [UIColor phpconfBlueColor];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont phpconfFontSize:9.f]} forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitlePositionAdjustment:UIOffsetMake(0, -5.f)];
+}
+
+#pragma mark - Services
+
+- (void)applyServices
+{
+    // Set the application id
+    [PCKit setApplicationId:kPCApplicationID dataSpec:[PCDataSpecDefines new]];
+    
+    // Set Google Services API Key
+    [GMSServices provideAPIKey:kPCGoogleApiKey];
 }
 
 #pragma mark - Accessors
@@ -76,8 +96,8 @@
         
         _mainTabBarController.viewControllers = @[
                                                   [[UINavigationController alloc] initWithRootViewController:[[PCSessionListsViewController alloc] init]],
-                                                  [[UINavigationController alloc] initWithRootViewController:[[PCVenueMapsViewController alloc] init]],
-                                                  [[UINavigationController alloc] initWithRootViewController:[[PCNewsListViewController alloc] init]],
+                                                  [[UINavigationController alloc] initWithRootViewController:[[PCVenueMapMainViewController alloc] init]],
+                                                  //[[UINavigationController alloc] initWithRootViewController:[[PCNewsListViewController alloc] init]],
                                                   [[UINavigationController alloc] initWithRootViewController:[[PCInfoListsViewController alloc] init]]
                                                   ];
     }

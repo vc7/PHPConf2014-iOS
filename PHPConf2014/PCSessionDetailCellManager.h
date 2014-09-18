@@ -21,7 +21,18 @@
  */
 - (instancetype)initWithTableView:(UITableView *)tableView;
 
+/*! Fetch the cell by given index path
+ @param indexPath the index path from the table view.
+ @return the cell need to be shown on the table view.
+ */
 - (PCSessionDetailCell *)fetchCellWithIndexPath:(NSIndexPath *)indexPath;
+/*! Fetch the cell by given index path and data
+ @param indexPath the index path from the table view.
+ @param data the data object which is going to be used on the returned cell.
+ @return the cell need to be shown on the table view.
+ */
 - (PCSessionDetailCell *)fetchCellWithIndexPath:(NSIndexPath *)indexPath data:(id)data;
 
+- (CGFloat)fetchCellHeightWithIndexPath:(NSIndexPath *)indexPath;
+- (NSInteger)fetchNumberOfRowsInSection:(NSInteger)section;
 @end

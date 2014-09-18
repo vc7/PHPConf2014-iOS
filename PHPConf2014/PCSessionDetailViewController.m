@@ -11,6 +11,8 @@
 #import "PCSessionDetailCell.h"
 #import "PCSessionDetailCellManager.h"
 
+#import "UIColor+PHPConfAdditions.h"
+
 @interface PCSessionDetailViewController ()
 
 @property (nonatomic, strong) PCSessionDetailCellManager *cellManager;
@@ -21,36 +23,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.view.backgroundColor = [UIColor phpconfExtraLightBlueColor];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
 }
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     // 0 - 講者及標題
     // 1 - 關於講題
     // 2 - 關於講者
     return 3;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    switch (section) {
-        // 講者及標題, Speaker and title
-        case 0:
-            return 2;
-        // 關於講題, Session detail
-        case 1:
-            return 1;
-        // 關於講者, About speaker
-        case 2:
-            return 1;
-        default:
-            break;
-    }
-    return 0;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.cellManager fetchNumberOfRowsInSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,7 +63,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44;
+    return [self.cellManager fetchCellHeightWithIndexPath:indexPath];
 }
 
 #pragma mark - Accessors
