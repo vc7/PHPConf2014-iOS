@@ -17,5 +17,6 @@
 @property (strong, nonatomic) UITabBarController *mainTabBarController;
 
 + (PCAppDelegate *)sharedAppDelegate;
+- (void)checkAndUpdateVersion;
 
 @end

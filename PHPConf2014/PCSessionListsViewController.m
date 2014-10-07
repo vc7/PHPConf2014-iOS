@@ -12,6 +12,7 @@
 #import "PCSessionVenueADataSource.h"
 #import "PCSessionVenueBDataSource.h"
 
+#import "PCAppDelegate.h"
 #import "PCHUDManager.h"
 #import "UIFont+PHPConfAdditions.h"
 
@@ -57,6 +58,13 @@
     [backBarButtonItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont phpconfFontSize:16.f]} forState:UIControlStateNormal];
     
     self.navigationItem.backBarButtonItem = backBarButtonItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [[PCAppDelegate sharedAppDelegate] checkAndUpdateVersion];
 }
 
 - (void)didReceiveMemoryWarning
