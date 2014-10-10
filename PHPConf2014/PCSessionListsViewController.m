@@ -64,7 +64,7 @@
 {
     [super viewWillAppear:animated];
     
-    [[PCAppDelegate sharedAppDelegate] checkAndUpdateVersion];
+    //[[PCAppDelegate sharedAppDelegate] checkAndUpdateVersion];
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,12 +77,12 @@
 - (void)sessionTableViewController:(PCSessionTableViewController *)tableViewController didSelectRowWithData:(id)data
 {
     // Use this view controller to push
-    if (data) {
+    if (!data) {
         DLog(@"Cell is selected");
         
-        //PCSessionDetailViewController *sessionDetailViewController = [[PCSessionDetailViewController alloc] initWithStyle:UITableViewStylePlain];
+        PCSessionDetailViewController *sessionDetailViewController = [[PCSessionDetailViewController alloc] initWithStyle:UITableViewStylePlain];
         
-        //[self.navigationController pushViewController:sessionDetailViewController animated:YES];
+        [self.navigationController pushViewController:sessionDetailViewController animated:YES];
         
     } else {
         DLog(@"Cell has no data to display");

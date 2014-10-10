@@ -21,6 +21,7 @@
 		BF6FEFD719E0D7EB009F2A8A /* Conference.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6FEFD619E0D7EB009F2A8A /* Conference.m */; };
 		BF6FEFDA19E0D7EB009F2A8A /* Speaker.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6FEFD919E0D7EB009F2A8A /* Speaker.m */; };
 		BF6FEFDD19E0D7EB009F2A8A /* AppStaff.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6FEFDC19E0D7EB009F2A8A /* AppStaff.m */; };
+		BF6FEFE019E6ED72009F2A8A /* UILabel+height.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6FEFDF19E6ED72009F2A8A /* UILabel+height.m */; };
 		BF9083BE19C491E4008F286F /* PCSessionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9083BD19C491E4008F286F /* PCSessionDetailViewController.m */; };
 		BF9083C219C49C3B008F286F /* PCSessionDetailCellManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9083C119C49C3B008F286F /* PCSessionDetailCellManager.m */; };
 		BF9083C519C49DCD008F286F /* PCSessionDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9083C419C49DCD008F286F /* PCSessionDetailCell.m */; };
@@ -120,6 +121,8 @@
 		BF6FEFD919E0D7EB009F2A8A /* Speaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Speaker.m; sourceTree = "<group>"; };
 		BF6FEFDB19E0D7EB009F2A8A /* AppStaff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStaff.h; sourceTree = "<group>"; };
 		BF6FEFDC19E0D7EB009F2A8A /* AppStaff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppStaff.m; sourceTree = "<group>"; };
+		BF6FEFDE19E6ED72009F2A8A /* UILabel+height.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+height.h"; sourceTree = "<group>"; };
+		BF6FEFDF19E6ED72009F2A8A /* UILabel+height.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+height.m"; sourceTree = "<group>"; };
 		BF9083BC19C491E4008F286F /* PCSessionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCSessionDetailViewController.h; sourceTree = "<group>"; };
 		BF9083BD19C491E4008F286F /* PCSessionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCSessionDetailViewController.m; sourceTree = "<group>"; };
 		BF9083C019C49C3B008F286F /* PCSessionDetailCellManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCSessionDetailCellManager.h; sourceTree = "<group>"; };
@@ -418,6 +421,8 @@
 				BFBEC33F19B4CD6800AA41EA /* UIColor+PHPConfAdditions.m */,
 				BF9083CE19C5D7C3008F286F /* UIFont+PHPConfAdditions.h */,
 				BF9083CF19C5D7C3008F286F /* UIFont+PHPConfAdditions.m */,
+				BF6FEFDE19E6ED72009F2A8A /* UILabel+height.h */,
+				BF6FEFDF19E6ED72009F2A8A /* UILabel+height.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -740,6 +745,7 @@
 				BFBEC35E19B8C89200AA41EA /* PCTopTabBarController.m in Sources */,
 				BF9083D019C5D7C3008F286F /* UIFont+PHPConfAdditions.m in Sources */,
 				BF6FEFCE19E0D7EB009F2A8A /* News.m in Sources */,
+				BF6FEFE019E6ED72009F2A8A /* UILabel+height.m in Sources */,
 				BFBEC36519BAE2F100AA41EA /* PCTopTabBarItem.m in Sources */,
 				BF9083DB19C71D93008F286F /* PCInfoPHPConfViewController.m in Sources */,
 				BFBEC36219BAE13300AA41EA /* PCTopTabBar.m in Sources */,

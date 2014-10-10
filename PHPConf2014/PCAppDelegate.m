@@ -17,8 +17,11 @@
 
 #import "PCVenueMapMainViewController.h"
 
+#import "Venue.h"
 #import "Version.h"
 #import "Session.h"
+#import "SponsorType.h"
+#import "Department.h"
 
 #import "UIColor+PHPConfAdditions.h"
 #import "UIFont+PHPConfAdditions.h"
@@ -52,6 +55,11 @@ typedef void (^PCCompletionBlock)(BOOL success, NSError *error);
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    [self checkAndUpdateVersion];
 }
 
 #pragma mark - Shared Instance
@@ -101,7 +109,7 @@ typedef void (^PCCompletionBlock)(BOOL success, NSError *error);
         
         _mainTabBarController.viewControllers = @[
                                                   [[UINavigationController alloc] initWithRootViewController:[[PCSessionListsViewController alloc] init]],
-                                                  [[UINavigationController alloc] initWithRootViewController:[[PCVenueMapMainViewController alloc] init]],
+                                                  [[UINavigationController alloc] initWithRootViewController:[[PCVenueMapsViewController alloc] init]],
                                                   [[UINavigationController alloc] initWithRootViewController:[[PCNewsListViewController alloc] init]],
                                                   [[UINavigationController alloc] initWithRootViewController:[[PCInfoListsViewController alloc] init]]
                                                   ];
@@ -123,7 +131,6 @@ typedef void (^PCCompletionBlock)(BOOL success, NSError *error);
 - (void)checkAndUpdateVersion
 {
     self.processingQueueCount = 0;
-    self.HUDManager.progressHUD.dimBackground = YES;
     self.HUDManager.progressHUD.mode = MBProgressHUDModeIndeterminate;
     self.HUDManager.progressHUD.labelText = @"檢查本地資料中～";
     [self.HUDManager showHUD];
@@ -186,9 +193,11 @@ typedef void (^PCCompletionBlock)(BOOL success, NSError *error);
     self.HUDManager.progressHUD.labelText = @"取得最新資料中";
     [self processingQueueCountPlus:YES];
     
+    [self initializeDataIfNeeded];
+    
     [self cleanDataWithCompletion:^(BOOL success, NSError *error) {
         if (success) {
-            DLog(@"=======\nsuccess\n=======");
+            DLog(@"======= success =======");
 
             [self processingQueueCountPlus:NO]; // clean data end
             
@@ -262,10 +271,10 @@ typedef void (^PCCompletionBlock)(BOOL success, NSError *error);
         
         @try {
             
-            NSArray *sessionsResult = [Session MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"title != nil"] inContext:context];
+            NSArray *sessionsResult = [Session MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"title != nil && isRegular == %@", @YES] inContext:context];
             
             if ([sessionsResult count] > 0) {
-                [Session MR_deleteAllMatchingPredicate:[NSPredicate predicateWithFormat:@"title != nil"] inContext:context];
+                [Session MR_deleteAllMatchingPredicate:[NSPredicate predicateWithFormat:@"title != nil && isRegular == %@", @YES] inContext:context];
                 [context MR_saveOnlySelfAndWait];
                 NSArray *sessionNewResult = [Session MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"title != nil"] inContext:context];
                 if (sessionNewResult.count == 0) {
@@ -287,6 +296,223 @@ typedef void (^PCCompletionBlock)(BOOL success, NSError *error);
             }
         }
     });
+}
+
+- (void)initializeDataIfNeeded
+{
+    NSManagedObjectContext *context = [NSManagedObjectContext MR_defaultContext];
+    
+    // Init Venues
+    
+    NSArray *venues = [Venue MR_findAllInContext:context];
+    
+    if (venues.count == 0) {
+        Venue *venue01 = [Venue MR_createInContext:context];
+        venue01.name = @"國璽樓一樓多功能國際會議廳";
+        venue01.createdAt = [NSDate date];
+        venue01.updatedAt = [NSDate date];
+        
+        Venue *venue02 = [Venue MR_createInContext:context];
+        venue02.name = @"國璽樓二樓國際會議廳";
+        venue02.createdAt = [NSDate date];
+        venue02.updatedAt = [NSDate date];
+        
+        [context MR_saveToPersistentStoreAndWait];
+        
+        DLog(@"====================================");
+        DLog(@"Init Data - Venues are Added");
+        DLog(@"====================================");
+    } else {
+        DLog(@"====================================");
+        DLog(@"Init Data - Venues are OK");
+        DLog(@"====================================");
+    }
+    
+    NSArray *newVenues = [Venue MR_findAllInContext:context];
+    
+    DLog(@"====================================");
+    DLog(@"Init Data - Venues count: %ld", newVenues.count);
+    DLog(@"====================================");
+    
+    venues = nil;
+    newVenues = nil;
+    
+    // Init Venues - END
+    
+    // Init Type Other Sessions
+    
+    NSArray *sessions = [Session MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"isRegular == %@", @NO] inContext:context];
+    
+    if (sessions.count == 0) {
+        
+        NSArray *otherSessions = @[
+                                   @{@"startedAt":@"09:00",
+                                     @"endedAt":@"09:20",
+                                     @"title":@"報到"
+                                     },
+                                   @{@"startedAt":@"09:20",
+                                     @"endedAt":@"09:30",
+                                     @"title":@"開幕"
+                                     },
+                                   @{@"startedAt":@"10:40",
+                                     @"endedAt":@"10:50",
+                                     @"title":@"休息"
+                                     },
+                                   @{@"startedAt":@"11:30",
+                                     @"endedAt":@"12:30",
+                                     @"title":@"午餐"
+                                     },
+                                   @{@"startedAt":@"13:20",
+                                     @"endedAt":@"13:30",
+                                     @"title":@"休息"
+                                     },
+                                   @{@"startedAt":@"14:10",
+                                     @"endedAt":@"14:40",
+                                     @"title":@"下午茶"
+                                     },
+                                   @{@"startedAt":@"15:10",
+                                     @"endedAt":@"15:20",
+                                     @"title":@"休息"
+                                     },
+                                   @{@"startedAt":@"16:00",
+                                     @"endedAt":@"16:10",
+                                     @"title":@"休息"
+                                     },
+                                   @{@"startedAt":@"16:50",
+                                     @"endedAt":@"17:00",
+                                     @"title":@"閉幕"
+                                     },
+                                   ];
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"yyyy/MM/dd HH:mm:ss";
+        dateFormatter.timeZone = [NSTimeZone timeZoneWithName:@"Asia/Taipei"];
+        
+        [otherSessions enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            
+            NSString *startTimeString = [NSString stringWithFormat:@"2014/10/18 %@:00", obj[@"startedAt"]];
+            NSString *endTimeString = [NSString stringWithFormat:@"2014/10/18 %@:00", obj[@"endedAt"]];
+            
+            NSDate *startTimeDate = [dateFormatter dateFromString:startTimeString];
+            NSDate *endTimeDate = [dateFormatter dateFromString:endTimeString];
+            
+            Session *session = [Session MR_createInContext:context];
+            
+            session.isRegular = @NO;
+            session.title = obj[@"title"];
+            session.startedAt = startTimeDate;
+            session.endedAt = endTimeDate;
+            
+        }];
+        
+        [context MR_saveToPersistentStoreAndWait];
+        
+        DLog(@"====================================");
+        DLog(@"Init Data - Other Sessions are Added");
+        DLog(@"====================================");
+    } else {
+        
+        DLog(@"====================================");
+        DLog(@"Init Data - Other Sessions are OK");
+        DLog(@"====================================");
+        
+    }
+    
+    NSArray *newSessions = [Session MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"isRegular == %@", @NO] inContext:context];
+    
+    DLog(@"====================================");
+    DLog(@"Init Data - Sessions count: %ld", newSessions.count);
+    DLog(@"====================================");
+    
+    sessions = nil;
+    newSessions = nil;
+    
+    // Init Type Other Sessions - END
+    
+    // Init Sponsor Types
+    
+    NSArray *sponsorTypes = [SponsorType MR_findAllInContext:context];
+    
+    if (sponsorTypes.count == 0) {
+        
+        SponsorType *type01 = [SponsorType MR_createInContext:context];
+        type01.name = @"黃金級";
+        type01.createdAt = [NSDate date];
+        type01.updatedAt = [NSDate date];
+        
+        SponsorType *type02 = [SponsorType MR_createInContext:context];
+        type02.name = @"鑽石級";
+        type02.createdAt = [NSDate date];
+        type02.updatedAt = [NSDate date];
+        
+        SponsorType *type03 = [SponsorType MR_createInContext:context];
+        type03.name = @"特別感謝";
+        type03.createdAt = [NSDate date];
+        type03.updatedAt = [NSDate date];
+        
+        SponsorType *type04 = [SponsorType MR_createInContext:context];
+        type04.name = @"合作媒體";
+        type04.createdAt = [NSDate date];
+        type04.updatedAt = [NSDate date];
+        
+        [context MR_saveToPersistentStoreAndWait];
+        
+        DLog(@"====================================");
+        DLog(@"Init Data - Sponsor Types are Added");
+        DLog(@"====================================");
+    } else {
+        DLog(@"====================================");
+        DLog(@"Init Data - Sponsor Types are OK");
+        DLog(@"====================================");
+    }
+    
+    NSArray *newSponsorTypes = [SponsorType MR_findAllInContext:context];
+    
+    DLog(@"====================================");
+    DLog(@"Init Data - Sponsor types count: %ld", newSponsorTypes.count);
+    DLog(@"====================================");
+    
+    sponsorTypes = nil;
+    newSponsorTypes = nil;
+    
+    // Init Sponsor Types - END
+    
+    // Init Staff Deparments
+    
+    NSArray *departments = [Department MR_findAllInContext:context];
+    
+    if (departments.count == 0) {
+        
+        NSArray *departmentNames = @[@"總召", @"議程", @"場務", @"採購", @"行政", @"票務", @"贊助", @"公關", @"設計", @"法律顧問", @"記錄線路", @"App 製作", @"網站製作"];
+        
+        [departmentNames enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            Department *department = [Department MR_createInContext:context];
+            department.name = obj;
+            department.createdAt = [NSDate date];
+            department.updatedAt = [NSDate date];
+            
+            [context MR_saveToPersistentStoreAndWait];
+        }];
+        
+        DLog(@"====================================");
+        DLog(@"Init Data - Departments are Added");
+        DLog(@"====================================");
+    } else {
+        DLog(@"====================================");
+        DLog(@"Init Data - Departments are OK");
+        DLog(@"====================================");
+    }
+    
+    NSArray *newDepartments = [Department MR_findAllInContext:context];
+    
+    DLog(@"====================================");
+    DLog(@"Init Data - Departments count: %ld", newDepartments.count);
+    DLog(@"====================================");
+    
+    departments = nil;
+    newDepartments = nil;
+    
+    
 }
 
 - (void)removeHUDIfNeededWithMessage:(NSString *)message

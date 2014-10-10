@@ -29,7 +29,6 @@
         UIView *parentView = ((PCAppDelegate *)[[UIApplication sharedApplication] delegate]).window.rootViewController.view;
         
         shared = [[PCHUDManager alloc] initWithParentView:parentView];
-
     });
     return shared;
 }

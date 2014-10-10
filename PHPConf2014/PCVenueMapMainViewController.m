@@ -13,9 +13,9 @@
 #import "PCContentCell.h"
 #import "PCMapCell.h"
 
-#import "UIImage+PDF.h"
 #import "UIColor+PHPConfAdditions.h"
 #import "UIFont+PHPConfAdditions.h"
+#import "UILabel+height.h"
 
 static NSString *const kPCVenueMapMainMainTitleCellIdentifier = @"kPCVenueMapMainMainTitleCellIdentifier";
 static NSString *const kPCVenueMapMainSecondaryTitleCellIdentifier = @"kPCVenueMapMainSecondaryTitleCellIdentifier";
@@ -33,7 +33,6 @@ static NSString *const kPCVenueMapMainMapCellIdentifier = @"kPCVenueMapMainMapCe
     self = [super init];
     if (self) {
         self.title = @"地圖";
-        self.tabBarItem.image = [UIImage imageWithPDFNamed:@"tab_icon.pdf" fitSize:(CGSize){30, 30} atPage:2];
         self.tableView.backgroundColor = [UIColor phpconfExtraLightBlueColor];
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
         self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -137,9 +136,11 @@ static NSString *const kPCVenueMapMainMapCellIdentifier = @"kPCVenueMapMainMapCe
     } else if (indexPath.row == 3 || indexPath.row == 5) {
         return 44;
     } else if (indexPath.row == 4) {
-        return 44*7.5;
+        NSString *content = @"台北車站捷運站: 513\n\n台大醫院捷運站: 513\n\n西門捷運站: 235、513、635、637、藍2\n\n民權西路捷運站: 636、638、801\n\n新埔捷運站: 99、802、842、845\n\n\n輔大捷運站:\n\n1. 輔仁大學門口公車站: 藍2、橘21、99、111、235、635、363、637、638、639、663、801、802、810、842、845、藍2、1501、1502、1503、1508、1510、1515、1803、5009、5075、5675、9102\n\n2. 三重客運輔大站: 513\n\n3. 建國一路輔大站: 299、615、618";
+        return [UILabel findHeightForText:content havingWidth:CGRectGetWidth(tableView.frame) - 10 andFont:[UIFont phpconfFontSize:14.f]] + 20;
     } else {
-        return 44*2;
+        NSString *content = @"一、輔大校門進入直行至最後端至中美堂，左轉第2棟有玻璃帷幕之新大樓即為國璽樓\n\n二、自輔大貴子門進入，右轉第一棟大樓即為國璽樓。";
+        return [UILabel findHeightForText:content havingWidth:CGRectGetWidth(tableView.frame) - 10 andFont:[UIFont phpconfFontSize:14.f]] + 20;
     }
 }
 
